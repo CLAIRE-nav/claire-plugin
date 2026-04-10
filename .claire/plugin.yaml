@@ -1,0 +1,37 @@
+name: navair
+version: 1.0.0
+description: "NAVAIR JSF stack domains and navair-dev agent persona — Java/Spring + Node/Vue + Jenkins + Oracle + MQ"
+
+author:
+  name: "CLAIRE-nav"
+  url: "https://github.com/CLAIRE-nav"
+
+type: domain
+
+deps:
+  - CLAIRE-plugins/plugin-java
+  - CLAIRE-plugins/plugin-jenkins
+  - CLAIRE-plugins/plugin-oracle
+
+dependencies:
+  system:
+    - git
+    - curl
+    - mvn
+    - npm
+  claire:
+    min: "0.2.0"
+
+commands:
+  - name: "jsf"
+    script: "domain/commands/jsf.sh"
+    description: "JSF stack operations: status | build [repo] | test [repo] | deploy [env]"
+    args:
+      - name: subcommand
+        type: string
+        required: true
+        description: "Subcommand: status, build, test, deploy"
+      - name: target
+        type: string
+        required: false
+        description: "Target repo or environment"
