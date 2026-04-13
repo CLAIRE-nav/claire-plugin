@@ -22,6 +22,23 @@ dependencies:
   claire:
     min: "0.2.0"
 
+requirements:
+  tools:
+    - name: java
+      version: ">=17"
+      install: "brew install openjdk@17"
+    - name: mvn
+      install: "brew install maven"
+    - name: node
+      version: ">=18"
+      install: "brew install node"
+
+  tokens:
+    - env: JENKINS_TOKEN
+      description: "Jenkins API token — generate in Jenkins user settings"
+    - env: ORACLE_PASSWORD
+      description: "Oracle DB credentials for the JSF environment"
+
 commands:
   - name: "jsf"
     script: "domain/commands/jsf.sh"
